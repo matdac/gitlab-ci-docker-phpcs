@@ -11,8 +11,12 @@ RUN apt-get update && \
         openssh-client \
         curl \
         git \
-        git-ftp
-		
+        git-ftp \
+		libicu-dev
+
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install intl
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
