@@ -5,7 +5,11 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         apt-transport-https \
         gnupg
-		
+
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+
 # Install PHP Code sniffer
 RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 RUN mv phpcs.phar /usr/local/bin/phpcs
