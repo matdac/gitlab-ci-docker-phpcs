@@ -6,6 +6,13 @@ RUN apt-get update && \
         apt-transport-https \
         gnupg
 
+RUN apt-get update && \
+    apt-get install -y \
+        openssh-client \
+        curl \
+        git \
+        git-ftp
+		
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
